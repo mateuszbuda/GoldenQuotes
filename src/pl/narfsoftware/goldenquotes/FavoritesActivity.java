@@ -11,10 +11,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -43,8 +46,25 @@ public class FavoritesActivity extends ListActivity {
 		db = new DbHelper(this);
 		db.open();
 
+		setEmptyView();
+
 		taskLoader = new AsyncFavoritesLoader();
 		taskLoader.execute();
+	}
+
+	private void setEmptyView() {
+		TextView ifEmptyView = new TextView(FavoritesActivity.this);
+		ifEmptyView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.MATCH_PARENT));
+		ifEmptyView.setGravity(Gravity.CENTER);
+		ifEmptyView.setText(getResources().getString(R.string.no_favorites));
+		ifEmptyView.setTypeface(Typeface.createFromAsset(getAssets(),
+				MainActivity.FONT_PATH));
+		ifEmptyView.setEms(10);
+		ifEmptyView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+
+		((ViewGroup) this.getListView().getParent()).addView(ifEmptyView);
+		getListView().setEmptyView(ifEmptyView);
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -132,6 +152,7 @@ public class FavoritesActivity extends ListActivity {
 					return view;
 				}
 			};
+
 			return adapter;
 		}
 
@@ -140,7 +161,6 @@ public class FavoritesActivity extends ListActivity {
 			super.onPostExecute(result);
 			getListView().setAdapter(result);
 		}
-
 	}
 
 	private class AsyncFavoriteSetter extends AsyncTask<View, Void, View> {

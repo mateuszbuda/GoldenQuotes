@@ -14,6 +14,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Tag used for logging and testing purposes.
 	 */
-//	private static final String TAG = "MainActivity";
+	// private static final String TAG = "MainActivity";
 
 	/**
 	 * Path to the font used as quotes' font.
@@ -43,7 +44,8 @@ public class MainActivity extends Activity {
 	/**
 	 * Not used
 	 */
-//	private static final String KEY_SAVE_QUOTE = "pl.narfsoftware.goldenquotes.QUOTE_INSTANCE_SAVE";
+	// private static final String KEY_SAVE_QUOTE =
+	// "pl.narfsoftware.goldenquotes.QUOTE_INSTANCE_SAVE";
 
 	private static Quote quote;
 
@@ -63,6 +65,7 @@ public class MainActivity extends Activity {
 		taskFavorite = new AsyncFavoriteSetter();
 
 		quoteTextView = (TextView) findViewById(R.id.text_quote);
+		quoteTextView.setMovementMethod(new ScrollingMovementMethod());
 
 		quoteTextView.setTypeface(Typeface.createFromAsset(getAssets(),
 				FONT_PATH));
@@ -177,7 +180,9 @@ public class MainActivity extends Activity {
 	private void fillWithData() {
 		(findViewById(R.id.stacked_buttons)).setVisibility(View.VISIBLE);
 		quoteTextView.setText(quote.getContent());
-		authorTextView.setText(quote.getAuthor().getName());
+		// White space is needed for some old devices which cut off last letter
+		// in italic font
+		authorTextView.setText(quote.getAuthor().getName() + " ");
 
 		if (quote.isFavourite()) {
 			favouriteBtn.setCompoundDrawablesWithIntrinsicBounds(

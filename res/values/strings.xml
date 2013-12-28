@@ -41,6 +41,7 @@ ment on our apps on Market.</string>
     <string name="wiki_more_info">More info on wikipedia:</string>
     <string name="featured_quote">Featured quote:</string>
     <string name="title_activity_add_quote">AddQuoteActivity</string>
+    <string name="no_favorites">You have no favorite quotes added yet. Click the star button in Quote screen to add some.</string>
 
     <string-array name="action_list">
         <item>Favorites</item>
