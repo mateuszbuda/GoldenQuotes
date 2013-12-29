@@ -173,6 +173,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void onClickBtn(View v) {
+		quoteTextView.scrollTo(0, 0);
 		taskLoader = new AsyncQuoteLoader();
 		taskLoader.execute();
 	}

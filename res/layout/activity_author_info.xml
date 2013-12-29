@@ -140,49 +140,56 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/text_featured_quote"
-                style="@style/textStyleAuthorInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/text_wikipedia_link"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/text_featured_title"
-                android:freezesText="true"
-                android:gravity="center_horizontal"
-                android:hint="FEATURED QUOTE"
-                android:paddingTop="25dp"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/text_wikipedia_link"
-                style="@style/textStyleAuthorInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="#ccddcc"
-                android:hint="WIKILINK" />
-
-            <TextView
-                android:id="@id/text_featured_title"
-                style="@style/textStyleAuthorInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/featured_quote"
-                android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <View
+                android:id="@+id/dividing_line"
                 style="@style/textStyleAuthorInfo"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_alignParentTop="true"
                 android:background="@android:color/black"
                 android:paddingTop="1dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/dividing_line"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/text_featured_title"
+                    style="@style/textStyleAuthorInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.10"
+                    android:text="@string/featured_quote"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_featured_quote"
+                    style="@style/textStyleAuthorInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.80"
+                    android:freezesText="true"
+                    android:gravity="center_horizontal"
+                    android:hint="FEATURED QUOTE"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="25dp"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/text_wikipedia_link"
+                    style="@style/textStyleAuthorInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.10"
+                    android:background="#ccddcc"
+                    android:hint="WIKILINK" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 
