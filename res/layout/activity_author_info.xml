@@ -184,6 +184,7 @@
                 android:hint="FEATURED QUOTE"
                 android:paddingBottom="20dp"
                 android:paddingTop="25dp"
+                android:scrollbars="vertical"
                 android:textSize="18sp" />
 
             <TextView
@@ -195,9 +196,7 @@
                 android:layout_alignParentLeft="true"
                 android:background="#ccddcc"
                 android:hint="WIKILINK" />
-
         </RelativeLayout>
-
     </LinearLayout>
 
 </ScrollView>

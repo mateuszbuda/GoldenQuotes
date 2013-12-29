@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +52,7 @@ public class AuthorInfoActivity extends Activity {
 		textFeaturedQuote = (TextView) findViewById(R.id.text_featured_quote);
 		textFeaturedQuote.setTypeface(Typeface.createFromAsset(getAssets(),
 				MainActivity.FONT_PATH));
+		textFeaturedQuote.setMovementMethod(new ScrollingMovementMethod());
 
 		db = new DbHelper(this);
 		db.open();
