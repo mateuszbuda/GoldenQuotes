@@ -41,6 +41,8 @@ public class MainActivity extends Activity {
 	 */
 	public static final String EXTRA_AUTHOR_ID = "pl.narfsoftware.goldenquotes.EXTRA_AUTHOR_ID";
 
+	private static final String G_PLAY_LINK = "https://play.google.com/store/apps/details?id=pl.narfsoftware.goldenquotes";
+
 	/**
 	 * Not used
 	 */
@@ -149,7 +151,7 @@ public class MainActivity extends Activity {
 					.getText().toString()
 					+ "\n "
 					+ this.authorTextView.getText().toString()
-					+ "\n by GoldenQuotes app!");
+					+ "\n by GoldenQuotes app!\n" + G_PLAY_LINK);
 			Intent chooser = Intent.createChooser(shareIntent, getResources()
 					.getString(R.string.share_chooser_title));
 			startActivity(chooser);
