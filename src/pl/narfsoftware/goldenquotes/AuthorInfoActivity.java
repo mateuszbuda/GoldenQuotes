@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,12 +46,11 @@ public class AuthorInfoActivity extends Activity {
 		textDeath = (TextView) findViewById(R.id.text_death_value);
 		textNation = (TextView) findViewById(R.id.text_nationality_value);
 		textProfession = (TextView) findViewById(R.id.text_profession_value);
-		textWikipediaLink = (TextView) findViewById(R.id.text_wikipedia_link);
-		textWikipediaLink.setMovementMethod(LinkMovementMethod.getInstance());
 		textFeaturedQuote = (TextView) findViewById(R.id.text_featured_quote);
 		textFeaturedQuote.setTypeface(Typeface.createFromAsset(getAssets(),
 				MainActivity.FONT_PATH));
-		textFeaturedQuote.setMovementMethod(new ScrollingMovementMethod());
+		textWikipediaLink = (TextView) findViewById(R.id.text_wikipedia_link);
+		textWikipediaLink.setMovementMethod(LinkMovementMethod.getInstance());
 
 		db = new DbHelper(this);
 		db.open();

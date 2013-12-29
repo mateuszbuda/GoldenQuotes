@@ -32,7 +32,7 @@
         android:layout_weight="0.15"
         android:fontFamily="sans-serif"
         android:freezesText="true"
-        android:gravity="right"/>
+        android:gravity="right" />
 
     <RelativeLayout
         android:id="@+id/stacked_buttons"
